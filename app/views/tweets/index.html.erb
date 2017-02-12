@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+    <p><%= notice %></p>
+    <h1>投稿一覧</h1>
+      <%= link_to "投稿を作成する", new_tweet_path, class: 'btn btn-default' %>
+    <% @tweets.each do |tweets| %>
+    <div class="row">
+      <p><%= tweets.content %></p>
+      <%= link_to "編集", edit_tweet_path(tweets.id), class: 'btn btn-default btn-sm btn-success' %>
+      <%= link_to "削除", tweet_path(tweets.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
+    </div>
+    <% end %>
+    <div id="page-top-btn" class="page-top-btn">
+      <p><a class="move-page-top" id="move-page-top">▲</a></p>
+    </div>
+  </div>
+</div>
